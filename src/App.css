@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .removeLinkHover {
+    @apply hover:after:w-[0] text-[#808080];
+  }
+  .lable{
+    @apply block text-gray-400 my-2;
+  }
+  .contactinput {
+    @apply bg-gray-800 px-4 w-[390px] py-1 rounded-lg;
+  }
+  .contactResponsive {
+    @apply contactinput w-[310px];
+  }
+  .tbd {
+    @apply border py-4 text-center;
+  }
+  .outlineinput {
+    @apply focus:outline-none  focus:border-blue-500 border-2 bg-gray-800  rounded-b-md;
+  }
+  .que {
+    @apply list-none text-white border p-2 rounded hover:bg-slate-600 w-[200px] mx-6;
+  }
+  .bd {
+    @apply border-2 border-l-0 border-r-0 border-t-0 border-gray-600;
+  }
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* background-color: white; */
+  background-color: #141b2d;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+  border: 1px solid #555;
+}
+
+a {
+  padding: 0 5px;
+  position: relative;
+  color: #959393bd;
+  /* color: black; */
+}
+a::after {
+  content: "";
+  position: absolute;
+  border-radius: 55px;
+  /* background-color: #73a6e1; */
+  background-color: #3f5e8199;
+  height: 3px;
+  width: 0;
+  left: 0px;
+  bottom: 2px;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: rgb(255, 253, 253);
+  /* font-size: 15.6px; */
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+#paintingForm input ,textarea {
+  width: 350px;
+  padding: 8px;
+
+}
