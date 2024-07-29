@@ -33,7 +33,7 @@ const AddStudent = () => {
 
   return (
     <>
-      <div className="flex  items-center w-full  flex-wrap">
+      <div className="flex  items-center w-full  flex-wrap ">
         <div
           className="" >
           <Humbar name={"Add Student"} />
@@ -42,7 +42,7 @@ const AddStudent = () => {
           {/* <h1 className="text-2xl font-bold mb-6 text-center"></h1> */}
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-3 gap-5 {  flex flex-wrap gap-5} "
+            className="md:grid grid-cols-3 md:gap-5 {  flex flex-wrap gap-5} "
           >
             <div className="mb-4  ">
               <label htmlFor="username" className="lable">
@@ -55,7 +55,7 @@ const AddStudent = () => {
                 value={data.username}
                 onChange={handleInput}
                 required
-                className="w-full  mx-2 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full   px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="mb-4">

@@ -1,6 +1,10 @@
 import React from "react";
 import { AiOutlineMenu, AiFillHome } from "react-icons/ai";
 import { IoMdAdd } from "react-icons/io";
+import { TbReceiptRupee } from "react-icons/tb";
+import { MdDownloading } from "react-icons/md";
+
+
 
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/contextapi";
@@ -16,31 +20,33 @@ const Sidebar = () => {
     {
       name: "Add Student",
       link: "/admin/addstudent",
-      logo: <IoMdAdd size={20} />,
+      logo: <IoMdAdd size={25} />,
     },
     {
       name: "Add Monthly Fees",
       link: "/admin/add-monthly-fees",
-      logo: <AiOutlineMenu />,
+      logo: <TbReceiptRupee  size={25}/>,
+
     },
     {
       name: "Download Student Details ",
       link: "#",
-      logo: <AiOutlineMenu />,
+      logo: <MdDownloading  size={25}/>
+      ,
       onClick:downloadallstudents,
     },
     {
       name: "Download Blank Student Details",
       link: "#",
-      logo: <AiOutlineMenu />,
+      logo: <MdDownloading  size={25}/>,
       onClick:downloadbasicstudents,
 
     },
   ];
   return (
-    <div className="">
-      <div className="w-[15vw] p-3 mx-2 my-2 bg-[#1f273e]  rounded-lg h-auto border ">
-        <div className=" flex justify-between my-5 text-2xl">
+    <div className="sidebar">
+      <div className="w-[16vw]  p-3 mx-1 my-2 bg-[#1f273e]  rounded-lg h-auto border ">
+        <div className=" flex justify-between my-5 md:text-2xl ">
           <h1>Admin </h1>
           <AiOutlineMenu />
         </div>
@@ -56,7 +62,7 @@ const Sidebar = () => {
 
                     <button
                       onClick={e.onClick}
-                      className="text-xl mx-2 my-2 mb-4 text-[#959393bd] bg-transparent border-none"
+                      className="text-xl mx-2 my-4 mb-4 text-[#959393bd] bg-transparent border-none"
                       >
                       {e.name}
                     </button>

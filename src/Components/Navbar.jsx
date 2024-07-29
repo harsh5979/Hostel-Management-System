@@ -136,7 +136,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         {/* hamburger bar  for phone */}
-        <div className="  md:hidden   mx-2 ">
+        <div className="  md:hidden   mx-2  ">
           <img
             id="menu"
             className=" invert-1 p-2  cursor-pointer mx-1"
@@ -148,105 +148,108 @@ const Navbar = () => {
         {/* nav element */}
         <div
           id="navElement"
-          className="humbar -left-[120%] md:left-0  gap-16 list-none  md:mx-6 text-[#808080 ] md:bg-transparent md:w-fit  md:relative md:top-0 md:bg-none md:p-0   md:flex md:h-full absolute right-0 top-[75px]  bg-[#0a131d]  p-8  rounded w-[398px] text-center h-[750px] "
+          className="humbar -left-[120%]  md:left-0 overflow-y-auto  md:overflow-y-visible gap-16 list-none  md:mx-6 text-[#808080 ] md:bg-transparent md:w-fit  md:relative md:top-0 md:bg-none md:p-0   md:flex md:h-full absolute right-0 top-[75px]  bg-[#0a131d]  p-8  rounded w-[398px] text-center {h-[750px]} h-[1550px] "
         >
-          {/* ******************************************************************
+          <div className="flex  md:mx-8  my-auto mx-auto text-center overflow-y-auto overflow-x-hidden md:overflow-x-visible md:overflow-y-visible justify-between md:gap-16 gap-10 h-fit flex-wrap  md:h-full ">
+            {/* ******************************************************************
                                     Home...................... 
          **********************************************************************/}
 
-          <NavLink
-            onClick={handletoggleclick}
-            className={(e) => {
-              return e.isActive
-                ? "text-white after:w-[100%] after:bg-[#73a6e1] "
-                : "";
-            }}
-            to={user?.isadmin ? "/admin/home" : "/student/home"}
-          >
-            <li className=" bd py-5 md:w-full  text-[17px] md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
-              Home
-            </li>
-          </NavLink>
+            <NavLink
+              onClick={handletoggleclick}
+              className={(e) => {
+                return e.isActive
+                  ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                  : "";
+              }}
+              to={user?.isadmin ? "/admin/home" : "/student/home"}
+            >
+              <li className=" bd py-5 md:w-full  text-[17px] md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
+                Home
+              </li>
+            </NavLink>
 
-          {/* ******************************************************************
+            {/* ******************************************************************
                         dashboard...................... 
          **********************************************************************/}
-          <NavLink
-            value="project"
-            onClick={handletoggleclick}
-            className={(e) => {
-              return e.isActive
-                ? "text-white  after:w-[100%] after:bg-[#73a6e1]"
-                : "";
-            }}
-            to={user?.isadmin ? "/admin/dashboard" : "/student/dashboard"}
-          >
-            <li className="bd py-5 md:w-full  md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
-              Dashboard
-            </li>
-          </NavLink>
-          {/* ******************************************************************
+            <NavLink
+              value="project"
+              onClick={handletoggleclick}
+              className={(e) => {
+                return e.isActive
+                  ? "text-white  after:w-[100%] after:bg-[#73a6e1]"
+                  : "";
+              }}
+              to={user?.isadmin ? "/admin/dashboard" : "/student/dashboard"}
+            >
+              <li className="bd py-5 md:w-full  md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
+                Dashboard
+              </li>
+            </NavLink>
+            {/* ******************************************************************
                                     Service...................... 
          **********************************************************************/}
 
-          {islogin && user?.isadmin && (
-            <>
-              <div
-                onClick={handleDropDown}
-                onMouseEnter={() => {
-                  handleDropDown();
-                }}
-                onMouseLeave={hdp}
-                value="service"
-                className={
-                  "cursor-pointer relative  text-[#959393bd] hover:text-white "
-                }
-              >
-                <li className="bd md:py-3 my-2 md:w-full  md:border-0    border relative  ">
-                  <div className="flex items-center justify-center">
-                    Services
-                    <FaAngleDown />
-                  </div>
+            {islogin && user?.isadmin && (
+              <>
+                <div
+                  onClick={handleDropDown}
+                  onMouseEnter={() => {
+                    handleDropDown();
+                  }}
+                  onMouseLeave={hdp}
+                  value="service"
+                  className={
+                    "cursor-pointer relative  text-[#959393bd] hover:text-white "
+                  }
+                >
+                  <li className="bd md:py-3 my-2 md:w-full  md:border-0    border relative  ">
+                    <div className="flex items-center justify-center">
+                      Services
+                      <FaAngleDown />
+                    </div>
 
-                  <ul
-                    className="md:bg-slate-800 md:absolute top-[9vh] md:w-[10rem] md:translate-x-[-30%] hidden opacity-1   z-10 rounded-xl bd "
-                    id="menu-drop-down"
-                  >
-                    {/*All services ...........................*/}
-                    {Service.map((e) => {
-                      return (
-                        <div key={e.name}>
-                          {e.onClick ? (
-                            <button
-                              onClick={e.onClick}
-                              className="mx-2 text-[#959393bd]  bg-transparent border-none"
-                            >
-                              <li className="py-3 px-1  md:border-0  hover:bg-[#3f5e8199] border">
-                                {e.name}
-                              </li>
-                            </button>
-                          ) : (
-                            <NavLink
-                              key={e.name}
-                              onClick={handletoggleclick}
-                              className={(e) => {
-                                return e.isActive
-                                  ? "text-white  after:w-[100%] after:bg-[#73a6e1]"
-                                  : "";
-                              }}
-                              to={`${e.link}`}
-                            >
-                              <li className=" py-3 px-1  md:border-0  hover:bg-[#3f5e8199] border">
-                                {e.name}
-                              </li>
-                            </NavLink>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </ul>
+                    <ul
+                      className="md:bg-slate-800 md:absolute  md:w-[10rem] md:translate-x-[-30%] hidden opacity-1   z-10 rounded-xl  "
+                      id="menu-drop-down"
+                    >
+                      {/*All services ...........................*/}
+                      {Service.map((e) => {
+                        return (
+                          <div key={e.name}>
+                            {e.onClick ? (
+                              
+                                <button
+                                  onClick={e.onClick}
+                                  className="mx-2 my-2 w-[75vw] md:w-auto text-[#959393bd]  bg-transparent border-none"
+                                >
+                                  <li className="md:py-3  md:px-1 px-3   md:border-0  hover:bg-[#3f5e8199] border border-dotted border-red-500">
+                                    {e.name}
+                                  </li>
+                                </button>
+                              
+                            ) : (
+                              <NavLink
+                                key={e.name}
+                                onClick={handletoggleclick}
+                                className={` removeLinkHover${(e) => {
+                                  return e.isActive
+                                    ? "text-white   after:bg-[#73a6e1]"
+                                    : "";
+                                }}` }
+                                to={`${e.link}`}
+                              >
+                                <li className=" md:py-3 md:px-1 py-1 md:border-0 mx-auto w-[75vw] md:w-auto hover:bg-[#3f5e8199] border border-dashed border-blue-400 ">
+                                  {e.name}
+                                </li>
+                              </NavLink>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </ul>
 
-                  {/* {!islogin && (
+                    {/* {!islogin && (
                     <ul
                       className="md:bg-slate-800 md:absolute top-[9vh] md:w-[15rem] md:translate-x-[-30%] hidden opacity-1  rounded-xl z-10"
                       id="menu-drop-down"
@@ -272,87 +275,88 @@ const Navbar = () => {
                       </NavLink>
                     </ul>
                   )} */}
-                </li>
-              </div>
-            </>
-          )}
+                  </li>
+                </div>
+              </>
+            )}
 
-          {/* ******************************************************************
+            {/* ******************************************************************
                         Contact us ...................... 
          **********************************************************************/}
-          <NavLink
-            onClick={handletoggleclick}
-            className={(e) => {
-              return e.isActive
-                ? "text-white after:w-[100%] after:bg-[#73a6e1]"
-                : "";
-            }}
-            to="/contact"
-          >
-            <li className="bd  py-5 md:w-full  text-[17px]  md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
-              Contact us
-            </li>
-          </NavLink>
-        </div>
-        {/* ******************************************************************
-                        login , sign up  and logout buttons...................... 
-         **********************************************************************/}
-        <div className=" btn mx-[65px] humbar -left-[120%] md:left-0 gap-2 md:mx-5 md:block md:relative md:top-0 absolute top-[690px]      ">
-          {islogin ? (
-            // logout button............
             <NavLink
               onClick={handletoggleclick}
-              to="/logout"
               className={(e) => {
                 return e.isActive
-                  ? "text-white   after:bg-[#73a6e1] removeLinkHover"
-                  : "removeLinkHover";
+                  ? "text-white after:w-[100%] after:bg-[#73a6e1]"
+                  : "";
               }}
-              // className={"removeLinkHover border-r border-white"}
+              to="/contact"
             >
-              <button
-                className={`md:px-7 md:py-[5px] py-[9px] px-9 mx-7  bg-[#29303d] hover:bg-slate-500 rounded   `}
-              >
-                Logout
-              </button>
+              <li className="bd  py-5 md:w-full  text-[17px]  md:border-0 md:hover:bg-transparent hover:bg-[#3f5e8199] border">
+                Contact us
+              </li>
             </NavLink>
-          ) : (
-            <>
-              {/* login button...........*/}
+          </div>
+          {/* ******************************************************************
+                        login , sign up  and logout buttons...................... 
+         **********************************************************************/}
+          <div className=" btn mx-auto  humbar -left-[120%] md:left-0  md:mx-12 my-5 md:block md:relative md:top-0  relative bottom-0     ">
+            {islogin ? (
+              // logout button............
               <NavLink
                 onClick={handletoggleclick}
-                to="/adminlogin"
-                className={(e) => {
-                  return e.isActive
-                    ? "text-white    after:bg-[#73a6e1] removeLinkHover"
-                    : "removeLinkHover";
-                }}
-              >
-                <button
-                  className={`md:px-7 md:py-[5px] py-[9px] px-9   bg-[#29303d] hover:bg-slate-500 rounded `}
-                >
-                  Admin-Login
-                </button>
-              </NavLink>
-
-              {/* signup button...........*/}
-              <NavLink
-                to="/studentlogin"
+                to="/logout"
                 className={(e) => {
                   return e.isActive
                     ? "text-white   after:bg-[#73a6e1] removeLinkHover"
-                    : "removeLinkHover text-[#808080 ]";
+                    : "removeLinkHover";
                 }}
-                onClick={handletoggleclick}
+                // className={"removeLinkHover border-r border-white"}
               >
                 <button
-                  className={`md:px-7 md:py-[5px] py-[9px] px-9  hover:bg-slate-500 bg-[#29303d] rounded   `}
+                  className={`md:px-7 md:py-[5px] py-[9px] px-9 mx-7  bg-[#29303d] hover:bg-slate-500 rounded   `}
                 >
-                  Student-Login
+                  Logout
                 </button>
               </NavLink>
-            </>
-          )}
+            ) : (
+              <div className="flex justify-center ">
+                {/* login button...........*/}
+                <NavLink
+                  onClick={handletoggleclick}
+                  to="/adminlogin"
+                  className={(e) => {
+                    return e.isActive
+                      ? "text-white    after:bg-[#73a6e1] removeLinkHover"
+                      : "removeLinkHover";
+                  }}
+                >
+                  <button
+                    className={`md:px-7 md:py-[5px] py-[10px] px-7   bg-[#29303d] hover:bg-slate-500 rounded `}
+                  >
+                    Admin-Login
+                  </button>
+                </NavLink>
+
+                {/* signup button...........*/}
+                <NavLink
+                  to="/studentlogin"
+                  className={(e) => {
+                    return e.isActive
+                      ? "text-white   after:bg-[#73a6e1] removeLinkHover"
+                      : "removeLinkHover text-[#808080 ]";
+                  }}
+                  onClick={handletoggleclick}
+                >
+                  <button
+                    className={`md:px-7 md:py-[5px] py-[10px] px-7  hover:bg-slate-500 bg-[#29303d] rounded   `}
+                  >
+                    Student-Login
+                  </button>
+                </NavLink>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
       <hr className=" sm:hidden  border  border-[#7a8aa74d] " />

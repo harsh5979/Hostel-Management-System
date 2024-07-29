@@ -47,7 +47,7 @@ const AddMonthlyFees = ({
   };
 
   return (
-    <div className="p-8">
+    <div className="p-8 w-screen md:w-auto">
       <h1 className="text-2xl font-bold mb-4">Add Monthly Fees</h1>
       {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
 
