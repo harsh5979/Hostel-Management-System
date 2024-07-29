@@ -18,7 +18,7 @@ const AdminDashboard = () => {
       <div className=" text-3xl mx-8 my-4">Student List :</div>
 
       {islogin ? (
-        <div className=" my-4 p-8 h-screen">
+        <div className="  p-8 h-screen md:w-full  items-center">
           <table className="justify-center m-auto  overflow-hidden border-transparent bg-white text-black">
             <thead className="bg-gray-600">
               <tr>

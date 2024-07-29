@@ -15,7 +15,7 @@ const Footer = () => {
         <footer className="bg-gray-800 text-white py-3  w-full md:h-20 h-[110px] justify-center  relative bottom-0">
           <div className="md:flex justify-around ">
             <h3 className="text-center my-1 select-none content-center ">
-              Designed and Developed by Harsh Prajapati.
+              Designed and Developed by Harsh & Resmit.
             </h3>
             <div className=" flex justify-center mb-1 items-center my-3">
               &copy; 2024 HP✨.  All Rights Reserved.
